@@ -9,7 +9,7 @@
 
 body {
   font-family: "Roboto Slab", serif;
-  font-weight: 400px;
+  font-weight: 400;
 }
 
 h1 {
@@ -33,7 +33,21 @@ h3 {
   font-size: 50px;
   color: #432A1B;
   line-height: 61px;
-  font-weight: 400px;
+  font-weight: 700px;
+}
+
+h4 {
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 21px;
+  color: #433D1B;
+  line-height: 28px;
+  font-weight: 700px;
+}
+
+h4 {
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 25px;
+  font-weight: 700px;
 }
 
 //HEADER
@@ -42,8 +56,7 @@ h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 160px;
-  width: 100%;
+  padding: 47px 0;
   background: transparent linear-gradient(180deg, #2A2403D6 0%, #3A330900 100%) 0% 0% no-repeat padding-box;
   position: fixed;
   z-index: 1;
@@ -60,14 +73,15 @@ h3 {
     text-decoration: none;
   }
 
-.nav {
+#menu-meni {
   display: flex;
   gap: 40px;
 }
 
 .transition{
+  padding: 10px;
   transition-property: background-color;
-  transition-duration: 0.5s;
+  transition-duration: 1s;
   background-color: #2E2A12;
 }
 
@@ -78,11 +92,14 @@ h3 {
   background-color: #2E2A12;
 }
 
+.banner-col {
+  padding-right: 110px;
+}
+
 .banner-wrap {
+  max-width: 513px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 533px;
 }
 
 .banner-line {
@@ -91,11 +108,8 @@ h3 {
 }
 
 .banner-text {
+  max-width: 425px;
   font-family: "Roboto";
-  font-size: 20px;
-  color: #ECE7C8;
-  line-height: 26px;
-  font-weight: 400px;
 }
 
 .banner-btn {
@@ -105,6 +119,7 @@ h3 {
 }
 
 .banner-img {
+  padding: 0;
   background-image: url("../images/podlaga7.jpg");
   background-size: cover;
 }
@@ -112,12 +127,16 @@ h3 {
 // SECTION ABOUT
 
 .about {
-  height: 892px;
+  padding: 225px 0 239px
 }
 
 .about-line {
   width: 112px;
   border-bottom: 2px dashed #B2A300;
+}
+
+.about-text {
+  max-width: 545px;
 }
 
 .about-img {
@@ -132,12 +151,11 @@ h3 {
 // SECTION SERVICES
 
 .services {
-  height: 2970px;
-  background-color: #FBF6DE;
+  padding: 195px 0 120px
 }
 
 .services-title {
-  width: 990px;
+  max-width: 990px;
   text-align: center;
 }
 
@@ -147,13 +165,41 @@ h3 {
 }
 
 .services-card {
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
   height: 405px;
   background: #FFFDF3 0% 0% no-repeat padding-box;
   border-radius: 10px;
 }
 
 .card-wrap {
-  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 0 16px;
+}
+
+.card-img {
+  height: 178px;
+  border-radius: 10px;
+}
+
+.consult {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 32px 120px 32px 38px;
+}
+
+.consult-img  {
+  background-image: url("../images/podiranje4.jpg");
+  background-size: cover;
+}
+
+.consult-wrap {
+  max-width: 314px;
 }
 
 //FOOTER
@@ -202,4 +248,9 @@ h3 {
   display: flex;
   flex-direction: column;
   gap: 1px;
+}
+
+.footer-credits {
+  padding-top: 160px;
+  font-size: 13px;
 }
