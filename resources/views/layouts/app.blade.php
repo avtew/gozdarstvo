@@ -14,6 +14,8 @@
 
     <div id="app">
 
+      <div class="shade"></div>
+
       @include('sections.header')
 
       <main id="main" class="main">

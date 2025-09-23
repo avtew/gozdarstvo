@@ -1,19 +1,19 @@
 @import "bootstrap/scss/bootstrap";
 @import './fonts.scss';
 
-@media (min-width: 1400px) {
-    .container{
-        max-width: 1267px;
-    }
-}
 
 body {
   font-family: "Roboto Slab", serif;
   font-weight: 400;
 }
 
+a {
+    color: #ECE7C8;
+    text-decoration: none;
+  }
+
 h1 {
-  font-family: "Roboto Slab", serif;
+  font-family: "Roboto Slab Bold", serif;
   font-size: 80px;
   color: #ECE7C8;
   line-height: 93px;
@@ -44,10 +44,16 @@ h4 {
   font-weight: 700px;
 }
 
-h4 {
-  font-family: "Roboto Slab", sans-serif;
-  font-size: 25px;
-  font-weight: 700px;
+.shade {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  opacity: 90%;
 }
 
 //HEADER
@@ -56,29 +62,71 @@ h4 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  min-height: 150px;
   padding: 47px 0;
   background: transparent linear-gradient(180deg, #2A2403D6 0%, #3A330900 100%) 0% 0% no-repeat padding-box;
   position: fixed;
   z-index: 1;
 }
 
-.nav-primary {
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.menu-logo {
+  display: none;
+}
+
+#menu-meni {
+  display: flex;
+  gap: 40px;
   font-family: "Roboto Slab", serif;
   font-weight: 700;
   font-size: 20px;
   color: #ECE7C8;
 }
-  a {
-    color: #ECE7C8;
-    text-decoration: none;
-  }
 
-#menu-meni {
-  display: flex;
-  gap: 40px;
+.burger {
+  position: relative;
+  z-index: 3;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  width: 30px;
+  margin-left: auto;
+  cursor: pointer;
+  transition: 0.5s;
 }
 
-.transition{
+.burger-line {
+  width: 100%;
+  height: 3px;
+  background-color: #ECE7C8;
+  transition: 0.5s;
+}
+
+.burger.open .burger-line-1 {
+  width: 30px;
+  background-color: #ECE7C8;
+  transform: rotate(-45deg) translate(-6px, 6px);
+}
+
+.burger.open .burger-line-2 {
+  opacity: 0;
+}
+
+.burger.open .burger-line-3 {
+  width: 30px;
+  background-color: #ECE7C8;
+  transform: rotate(45deg) translate(-7px, -7px);
+}
+
+.transition {
+  min-height: 76px;
   padding: 10px;
   transition-property: background-color;
   transition-duration: 1s;
@@ -127,7 +175,10 @@ h4 {
 // SECTION ABOUT
 
 .about {
-  padding: 225px 0 239px
+  display: flex;
+  justify-content: center;
+  padding: 225px 0 239px;
+  background-color: #FFFDF2;
 }
 
 .about-line {
@@ -136,12 +187,14 @@ h4 {
 }
 
 .about-text {
-  max-width: 545px;
+  min-width: 545px;
+  margin-bottom: 0;
+  padding-right: 96px;
 }
 
 .about-img {
-  width: 625px;
-  height: 428px;
+  max-width: 625px;
+  min-height: 428px;
   border-radius: 10px;
   background-image: url("../images/podiranje4.jpg");
   background-size: cover;
@@ -151,7 +204,8 @@ h4 {
 // SECTION SERVICES
 
 .services {
-  padding: 195px 0 120px
+  padding: 195px 0 120px;
+  background-color: #FBF6DE;
 }
 
 .services-title {
@@ -164,26 +218,31 @@ h4 {
   border-bottom: 2px dashed #B2A300;
 }
 
-.services-card {
+.services-item {
   display: flex;
   flex-direction: column;
   gap: 23px;
-  height: 405px;
-  background: #FFFDF3 0% 0% no-repeat padding-box;
+  min-height: 100%;
+  padding: 0;
+  background: #FFFDF3;
   border-radius: 10px;
 }
 
-.card-wrap {
+.item-wrap {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  padding: 0 16px;
+  padding: 0 16px 32px 16px;
 }
 
-.card-img {
-  height: 178px;
+.item-img {
+  width: 100%;
+  min-height: 178px;
   border-radius: 10px;
+    img {
+    min-height: 178px;
+  }
 }
 
 .consult {
@@ -191,15 +250,49 @@ h4 {
   justify-content: space-between;
   margin: 0;
   padding: 32px 120px 32px 38px;
+  background-color: #2E2A12;
+  border-radius: 10px;
 }
 
 .consult-img  {
-  background-image: url("../images/podiranje4.jpg");
+  background-image: url("../images/podlaga2.jpg");
   background-size: cover;
+  border-radius: 10px;
 }
 
 .consult-wrap {
   max-width: 314px;
+}
+
+//SECTION CONTACTS 
+
+.contacts {
+  padding: 203px 0 0
+}
+
+
+.contacts-title-address::before {
+  content: url(../images/map.png);
+  width: 24px;
+  height: 32px;
+  margin-right: 23px;
+  vertical-align: -30%;
+}
+
+.contacts-title-phone::before {
+  content: url(../images/phone.png);
+  width: 24px;
+  height: 32px;
+  margin-right: 23px;
+  vertical-align: -30%;
+}
+
+.contacts-text {
+  margin-left: 53px;
+}
+
+.contacts-map {
+  width: 100%;
 }
 
 //FOOTER
@@ -253,4 +346,85 @@ h4 {
 .footer-credits {
   padding-top: 160px;
   font-size: 13px;
+}
+
+
+//@MEDIA
+
+@media (min-width: 1400px) {
+  .container {
+      max-width: 1267px;
+  }
+}
+
+@media (max-width: 1399px) {
+  .banner-col {
+    padding-right: 40px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .banner-col {
+    padding-right: 0;
+  }
+
+  .about-text {
+    min-width: 450px;
+    padding-right: 32px;
+  }
+
+  .consult {
+    padding-right: 38px;
+  }
+}
+
+@media (max-width: 991px) {
+  .menu-container {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: -600px;
+    width: 55%;
+    height: 100%;
+    padding: 140px 0 0 80px;
+    background-color: #2E2A12;
+    transition: 0.5s all;
+  }
+
+  .menu-container.open {
+    display: flex;
+    right: 0;
+  }
+
+  .menu-logo {
+    display: block;
+  }
+
+  #menu-meni {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  .about-text {
+    padding-right: 0;
+    padding-bottom: 48px
+  }
+  .about-img {
+    max-width: 720px;
+  }
+
+  .services {
+    h3 {
+      font-size: 32px;
+      line-height: normal;
+    }
+  }
+    .consult-wrap {
+      max-width: 100%;
+    }
 }

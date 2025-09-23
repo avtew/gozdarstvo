@@ -12,8 +12,8 @@
               <div class="footer-address">Starožirovska cesta 3A, <br> 4226 Žiri</div>
             </div>
           </div>
-          <div class="col-lg-2 col-sm-12"></div>
-          <div class="col-lg-2 col-sm-12">
+          <div class="col-xxl-2 col-lg-1 col-sm-12"></div>
+          <div class="col-lg-2 col-sm-12 pt-lg-0 pt-sm-5">
             <div class="footer-col-md">
               <span class="footer-title">Navigacija</span>
               <div>
